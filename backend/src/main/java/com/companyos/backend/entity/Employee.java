@@ -11,16 +11,11 @@ public class Employee {
     private Long employeeId;
 
     private String employeeName;
-
     private String email;
-
     private String phone;
-
-    private String jobTitle;
-
+    private String position;
     private String department;
-
-    private Double salary;
+    private Long companyId;
 
     public Employee() {
     }
@@ -57,12 +52,12 @@ public class Employee {
         this.phone = phone;
     }
 
-    public String getJobTitle() {
-        return jobTitle;
+    public String getPosition() {
+        return position;
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public String getDepartment() {
@@ -73,11 +68,11 @@ public class Employee {
         this.department = department;
     }
 
-    public Double getSalary() {
-        return salary;
+    public Long getCompanyId() {
+        return companyId;
     }
 
-    public void setSalary(Double salary) {
-        this.salary = salary;
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
     }
 }
