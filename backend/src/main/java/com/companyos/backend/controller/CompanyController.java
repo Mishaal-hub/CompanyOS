@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:5173")
 public class CompanyController {
 
     private final CompanyService service;
@@ -37,9 +38,10 @@ public class CompanyController {
             @RequestBody Company company) {
         return service.updateCompany(id, company);
     }
+
     @DeleteMapping("/companies/{id}")
-public String deleteCompany(@PathVariable Long id) {
-    service.deleteCompany(id);
-    return "Company deleted successfully";
-}
+    public String deleteCompany(@PathVariable Long id) {
+        service.deleteCompany(id);
+        return "Company deleted successfully";
+    }
 }

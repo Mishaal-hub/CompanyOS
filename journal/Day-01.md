@@ -2,20 +2,19 @@
 
 ## What I completed
 
-- Created project structure
-- Initialized Git repository
-- Created GitHub repository
-- Added README
-- Created documentation
+I hava Created project structure
+Initialized Git repository
+Then Created GitHub repository
+Also Added README
+Created documentation
 
 ## What I learned
-
-(Write this in your own words.)
+I learned to create repository in automation mode.
 
 ## Problems faced
 
-(Write any issues you encountered.)
+Struggled in creating repository in automation mode.
 
 ## Tomorrow's Goal
 
-Design the complete backend architecture.
+Is to design the complete backend architecture.
