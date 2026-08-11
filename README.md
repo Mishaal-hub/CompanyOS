@@ -6,13 +6,17 @@
 
 CompanyOS is a modern Business Operating System designed to help organizations manage their daily operations from a single platform.
 
-Instead of using multiple disconnected applications, CompanyOS brings everything together in one place, including employee management, project management, task tracking, and AI-powered business assistance through MATE.
+The long-term vision is to bring company operations such as employee management, projects, tasks, business information, and intelligent assistance into one unified platform.
+
+The current MVP focuses on building the core company management foundation using Spring Boot, React, and MySQL.
 
 ---
 
 ## 🎯 Problem Statement
 
-Many small and medium-sized businesses use multiple tools like spreadsheets, messaging apps, calendars, and project management software. This causes:
+Many small and medium-sized businesses use multiple disconnected tools such as spreadsheets, messaging applications, calendars, and project management systems.
+
+This can lead to:
 
 - Scattered information
 - Poor collaboration
@@ -20,94 +24,66 @@ Many small and medium-sized businesses use multiple tools like spreadsheets, mes
 - Lack of centralized business knowledge
 - Inefficient decision making
 
-CompanyOS aims to solve these problems by providing a unified platform.
+CompanyOS aims to provide a unified foundation for managing business operations.
 
 ---
 
 ## 🚀 Vision
 
-To build an Adaptive Business Operating System that helps businesses manage their work while providing intelligent insights through MATE.
+To build an Adaptive Business Operating System that helps businesses manage their operations while providing intelligent insights through MATE.
 
 ---
 
-## 🤖 What is MATE?
+## 🤖 MATE Intelligence
 
-MATE (Management & Adaptive Task Engine) is the AI intelligence inside CompanyOS.
+MATE (Management & Adaptive Task Engine) is the planned intelligence layer of CompanyOS.
 
-MATE will help users by:
+MATE is intended to:
 
-- Answering company-related questions
-- Remembering company knowledge
-- Providing business health insights
-- Analyzing employee workload
-- Giving daily business briefings
-- Simulating business decisions
+- Answer company-related questions
+- Remember company knowledge
+- Provide business health insights
+- Analyze employee workload
+- Provide daily business briefings
+- Assist with business decision simulation
 
----
-
-## 🛠 Tech Stack
-
-### Backend
-- Java
-- Spring Boot
-- Spring Security
-- Spring Data JPA
-- MySQL
-
-### Frontend
-- React
-- HTML
-- CSS
-- JavaScript
-
-### Tools
-- Git
-- GitHub
-- Postman
-- Maven
-- VS Code
-- IntelliJ IDEA
-
-### Cloud (Planned)
-- To be decided
+> MATE intelligence is part of the long-term vision; the current MVP focuses on the core CompanyOS management platform.
 
 ---
 
-## 📂 Project Structure
+## 🧩 Current MVP
 
-```
-CompanyOS
-│
-├── backend
-├── frontend
-├── docs
-├── diagrams
-├── journal
-└── README.md
-```
+The current MVP provides:
 
----
-
-## 📅 Current Status
-
-🟢 Planning Phase
+- Company management
+- Department management
+- Create, read, update, and delete operations
+- REST API backend
+- React frontend
+- MySQL persistence
+- Backend service and repository layers
+- Git/GitHub development workflow
 
 ---
 
-## 👨‍💻 Developer
+## 🏗️ Architecture
 
-**Mishaal Ahamed**
-
----
-
-## 📖 License
-
-This project is currently being developed as a capstone project and learning project.
-## 📚 Documentation
-
-The complete project documentation is available in the `docs` folder.
-
-- [Project Abstract](docs/abstract.md)
-- [System Algorithm](docs/algorithm.md)
-- [Vision Document](docs/vision.md)
-- [Roadmap](docs/roadmap.md)
+```text
+                         CompanyOS
+                             │
+              ┌──────────────┴──────────────┐
+              │                             │
+       React Frontend                Spring Boot API
+       localhost:5173                localhost:8080
+              │                             │
+              │                     ┌───────┴───────┐
+              │                     │               │
+              │                Controllers       Services
+              │                     │               │
+              │                     └───────┬───────┘
+              │                             │
+              │                         Repository
+              │                             │
+              └─────────────────────────────┤
+                                            │
+                                      MySQL Database

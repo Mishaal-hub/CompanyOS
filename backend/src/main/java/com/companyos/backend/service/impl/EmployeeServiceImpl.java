@@ -29,14 +29,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee getEmployee(Long id) {
         return employeeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Employee not found"));
+                .orElse(null);
     }
 
     @Override
     public Employee updateEmployee(Long id, Employee employee) {
 
         Employee existingEmployee = employeeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Employee not found"));
+                .orElse(null);
+
+        if (existingEmployee == null) {
+            return null;
+        }
 
         existingEmployee.setEmployeeName(employee.getEmployeeName());
         existingEmployee.setEmail(employee.getEmail());
@@ -52,7 +56,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void deleteEmployee(Long id) {
 
         if (!employeeRepository.existsById(id)) {
-            throw new RuntimeException("Employee not found");
+            return;
         }
 
         employeeRepository.deleteById(id);
