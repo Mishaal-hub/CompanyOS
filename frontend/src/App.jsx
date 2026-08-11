@@ -184,6 +184,26 @@ const createDepartment = async (event) => {
             ) : (
               companies.map((company) => (
                 <div className="company-card" key={company.companyId}>
+                  <div className="card-actions">
+  <button
+    onClick={async () => {
+      if (!confirm("Delete this company?")) return;
+
+      const response = await fetch(
+        `${API}/companies/${company.companyId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (response.ok) {
+        await loadCompanies();
+      }
+    }}
+  >
+    Delete
+  </button>
+</div>
                   <div className="company-icon">◆</div>
 
                   <h3>{company.companyName}</h3>
@@ -310,10 +330,31 @@ const createDepartment = async (event) => {
               <p>No departments found.</p>
             ) : (
               departments.map((department) => (
+                
                 <div
                   className="department-card"
                   key={department.departmentId}
                 >
+                  <div className="card-actions">
+  <button
+    onClick={async () => {
+      if (!confirm("Delete this department?")) return;
+
+      const response = await fetch(
+        `${API}/departments/${department.departmentId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (response.ok) {
+        await loadDepartments();
+      }
+    }}
+  >
+    Delete
+  </button>
+</div>
                   <h3>{department.departmentName}</h3>
 
                   <p>{department.description}</p>

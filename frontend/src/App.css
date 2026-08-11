@@ -271,4 +271,23 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+.card-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.card-actions button {
+  border: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  background: #ef4444;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.card-actions button:hover {
+  background: #dc2626;
+}
 }
