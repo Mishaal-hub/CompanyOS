@@ -184,7 +184,48 @@ const createDepartment = async (event) => {
             ) : (
               companies.map((company) => (
                 <div className="company-card" key={company.companyId}>
-                  <div className="card-actions">
+                  
+                 <div className="card-actions">
+  <button
+    onClick={async () => {
+      const newName = prompt(
+        "Enter new company name:",
+        company.companyName
+      );
+
+      if (!newName || newName === company.companyName) return;
+
+      const updatedCompany = {
+        companyName: newName,
+        email: company.email,
+        phone: company.phone,
+        address: company.address,
+        website: company.website,
+        industry: company.industry,
+        logoUrl: company.logoUrl,
+      };
+
+      const response = await fetch(
+        `${API}/companies/${company.companyId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedCompany),
+        }
+      );
+
+      if (response.ok) {
+        await loadCompanies();
+      } else {
+        alert("Failed to update company");
+      }
+    }}
+  >
+    Edit
+  </button>
+
   <button
     onClick={async () => {
       if (!confirm("Delete this company?")) return;
@@ -338,6 +379,42 @@ const createDepartment = async (event) => {
                   <div className="card-actions">
   <button
     onClick={async () => {
+      const newName = prompt(
+        "Enter new department name:",
+        department.departmentName
+      );
+
+      if (!newName || newName === department.departmentName) return;
+
+      const updatedDepartment = {
+        departmentName: newName,
+        description: department.description,
+        companyId: department.companyId,
+      };
+
+      const response = await fetch(
+        `${API}/departments/${department.departmentId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedDepartment),
+        }
+      );
+
+      if (response.ok) {
+        await loadDepartments();
+      } else {
+        alert("Failed to update department");
+      }
+    }}
+  >
+    Edit
+  </button>
+
+  <button
+    onClick={async () => {
       if (!confirm("Delete this department?")) return;
 
       const response = await fetch(
@@ -349,6 +426,8 @@ const createDepartment = async (event) => {
 
       if (response.ok) {
         await loadDepartments();
+      } else {
+        alert("Failed to delete department");
       }
     }}
   >
